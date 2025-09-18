@@ -1,10 +1,12 @@
-#include<iostream>
-#include<cmath>
+#include <iostream>
+#include <cmath>
 
-int main() {
+using namespace std;
 
-	cout<<"Esto es una prueba para que funcione el repo"<<endl;
+int main()
+{
+
+	cout << "Esto es una prueba para que funcione el repo" << endl;
 
 	return 0;
-
 }
