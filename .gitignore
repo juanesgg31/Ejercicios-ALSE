@@ -1,23 +1,23 @@
-# --- Sistema ---
+
 .DS_Store
 Thumbs.db
 ehthumbs.db
 
-# --- Entornos / dependencias ---
+
 node_modules/
 __pycache__/
 .venv/
 .env
 .env.*
 
-# --- VS Code ---
+
 .vscode/*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/settings.json
 compile_commands.json
 
-# --- Compilados C/C++ y derivados ---
+
 *.o
 *.obj
 *.out
@@ -31,21 +31,20 @@ compile_commands.json
 *.d
 a.out
 
-# --- Carpetas de binarios/build ---
+
 build/
 bin/
 dist/
 out/
 
-# --- CMake (si lo usas) ---
+
 CMakeFiles/
 CMakeCache.txt
 cmake-build-*/
 *.cmake
-# Descomenta si NO quieres versionar esto:
-# compile_commands.json
 
-# --- Respaldos / temporales de editores ---
+
+
 *.save
 *~
 *.swp
