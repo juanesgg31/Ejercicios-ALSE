@@ -23,7 +23,7 @@ void leerPuntos(Point puntos[], int n)
         {
             std::cout << "Ingrese las coordenadas del punto " << i + 1 << " (x, y): ";
             char lp, comma, rp;
-            std::cin >> lp >> puntos[i].x >> comma >> puntos[i].y >> rp;
+            std::cin >> lp >> puntos[i].x >> comma >> puntos[i].y >> rp; // Profe entendi que se da en este formato el vector (x, y)
         }
     }
     else
