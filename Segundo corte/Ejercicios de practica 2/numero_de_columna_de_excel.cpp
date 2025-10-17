@@ -4,27 +4,26 @@ using namespace std;
 class Solution
 {
 public:
-    int titleToNumber(string columnTitle)
+    int titleToNumber(string titulo_col)
     {
-        long long result = 0;
-        for (char c : columnTitle)
+        long long acum = 0;
+        for (char c : titulo_col)
         {
-            int value = (c - 'A') + 1;
-            result = result * 26 + value;
+            int val = (c - 'A') + 1;
+            acum = acum * 26 + val;
         }
-        return (int)result;
+        return (int)acum;
     }
 };
 
 int main()
 {
-    Solution s;
-    string columnTitle;
+    Solution sol;
+    string titulo_col;
     cout << "Ingrese el titulo de la columna (por ejemplo AB): ";
-    cin >> columnTitle;
+    cin >> titulo_col;
 
     cout << "El numero de columna correspondiente es: "
-         << s.titleToNumber(columnTitle) << endl;
-
+         << sol.titleToNumber(titulo_col) << endl;
     return 0;
 }

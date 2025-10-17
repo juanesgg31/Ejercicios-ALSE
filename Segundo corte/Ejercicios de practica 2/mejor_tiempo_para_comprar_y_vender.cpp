@@ -4,40 +4,39 @@ using namespace std;
 class Solution
 {
 public:
-    int maxProfit(vector<int> &prices)
+    int maxProfit(vector<int> &precios)
     {
-        int minPrice = INT_MAX;
-        int maxProfit = 0;
+        int min_precio = INT_MAX;
+        int mejor_gan = 0;
 
-        for (int price : prices)
+        for (int p : precios)
         {
-            if (price < minPrice)
+            if (p < min_precio)
             {
-                minPrice = price;
+                min_precio = p;
             }
-            else if (price - minPrice > maxProfit)
+            else if (p - min_precio > mejor_gan)
             {
-                maxProfit = price - minPrice;
+                mejor_gan = p - min_precio;
             }
         }
-        return maxProfit;
+        return mejor_gan;
     }
 };
 
 int main()
 {
-    Solution s;
+    Solution sol;
     int n;
     cout << "Ingrese la cantidad de dias: ";
     cin >> n;
 
-    vector<int> prices(n);
+    vector<int> precios(n);
     cout << "Ingrese los precios por dia:\n";
     for (int i = 0; i < n; ++i)
-        cin >> prices[i];
+        cin >> precios[i];
 
     cout << "\nLa maxima ganancia posible es: "
-         << s.maxProfit(prices) << endl;
-
+         << sol.maxProfit(precios) << endl;
     return 0;
 }

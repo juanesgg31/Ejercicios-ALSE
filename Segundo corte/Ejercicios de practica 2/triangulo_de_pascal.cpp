@@ -4,39 +4,38 @@ using namespace std;
 class Solution
 {
 public:
-    vector<vector<int>> generate(int numRows)
+    vector<vector<int>> generate(int num_filas)
     {
-        vector<vector<int>> triangle;
+        vector<vector<int>> triangulo;
 
-        for (int i = 0; i < numRows; ++i)
+        for (int i = 0; i < num_filas; ++i)
         {
-            vector<int> row(i + 1, 1);
+            vector<int> fila(i + 1, 1);
             for (int j = 1; j < i; ++j)
             {
-                row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+                fila[j] = triangulo[i - 1][j - 1] + triangulo[i - 1][j];
             }
-            triangle.push_back(row);
+            triangulo.push_back(fila);
         }
-        return triangle;
+        return triangulo;
     }
 };
 
 int main()
 {
-    Solution s;
-    int numRows;
+    Solution sol;
+    int num_filas;
     cout << "Ingrese el numero de filas del triangulo de Pascal: ";
-    cin >> numRows;
+    cin >> num_filas;
 
-    vector<vector<int>> result = s.generate(numRows);
+    vector<vector<int>> res = sol.generate(num_filas);
 
-    cout << "\nTriangulo de Pascal con " << numRows << " filas:\n";
-    for (auto &fila : result)
+    cout << "\nTriangulo de Pascal con " << num_filas << " filas:\n";
+    for (auto &fila : res)
     {
-        for (int num : fila)
-            cout << num << " ";
+        for (int v : fila)
+            cout << v << " ";
         cout << "\n";
     }
-
     return 0;
 }
