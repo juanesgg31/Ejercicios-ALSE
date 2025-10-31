@@ -9,9 +9,9 @@ private:
     int id;
     std::string nombre;
     bool estado;
-    float consumoEnergia;
+    float consumoEnergia; // consumo en Wh por hora de uso
     bool bloqueado;
-    float energiaAcumulada;
+    float energiaAcumulada; // energía total consumida (Wh)
 
 public:
     DispositivoInteligente(int idDispositivo,
