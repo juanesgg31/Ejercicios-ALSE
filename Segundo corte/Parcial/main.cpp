@@ -6,33 +6,27 @@
 
 int main()
 {
-    // Grupo de dispositivos inteligentes en el hogar
     std::vector<DispositivoInteligente> dispositivos;
 
-    // Creamos al menos 2 dispositivos
     DispositivoInteligente bombilloSala(
         1,
         "Bombillo sala",
-        false, // empieza apagado
-        10.0f, // 10 Wh por hora
-        false  // no bloqueado
-    );
+        false,
+        10.0f,
+        false);
 
     DispositivoInteligente neveraCocina(
         2,
         "Nevera cocina",
-        true,  // empieza encendida
-        80.0f, // 80 Wh por hora
+        true,
+        80.0f,
         false);
 
     dispositivos.push_back(bombilloSala);
     dispositivos.push_back(neveraCocina);
 
-    // Simulación de lectura de datos (horas de uso medidas)
-    // Por ejemplo: el bombillo estuvo 2.5 horas encendido, la nevera 2.5 horas
     float horasSimuladas = 2.5f;
 
-    // Encendemos todos los dispositivos que estén apagados para la simulación
     for (auto &disp : dispositivos)
     {
         if (!disp.estaEncendido())
@@ -66,7 +60,7 @@ int main()
                   << std::endl;
     }
 
-    // BONUS: generar reporte .txt con ID y consumo total
+    // BONUS
     std::ofstream archivoReporte("reporte_consumo.txt");
 
     if (archivoReporte.is_open())
