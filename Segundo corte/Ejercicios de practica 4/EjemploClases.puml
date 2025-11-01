@@ -1,0 +1,106 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam dpi 150
+skinparam shadowing false
+
+package Vehiculos {
+  class Vehicle {
+    - speed: int
+    # brand: string
+    --
+    + Vehicle(b: string, s: int)
+    + Vehicle(b: string)
+    + Vehicle(s: int)
+    + ~Vehicle()
+    + getSpeed() const: int
+    + setSpeed(s: int): void
+    + setBrand(b: string): void
+    + getBrand() const: string
+    + display(): void
+  }
+
+  class Car extends Vehicle {
+    - numDoors: int
+    - numWheels: int
+    --
+    + Car(b: string, s: int, doors: int, wheels: int = 4)
+    + ~Car()
+    + getNumDoors() const: int
+    + setNumDoors(doors: int): void
+    + getNumWheels() const: int
+    + setNumWheels(wheels: int): void
+    + display(): void
+  }
+
+  class AirVehicle extends Vehicle {
+    - altitude: int
+    - isMultirotor: bool
+    --
+    + AirVehicle(b: string, s: int, alt: int)
+    + display(): void
+  }
+}
+
+package "Geometría 3D" {
+  abstract class Shape3D {
+    {abstract} + getVolume() const: double
+    {abstract} + getSurfaceArea() const: double
+    + ~Shape3D()
+  }
+
+  class Cube extends Shape3D {
+    - length: double
+    --
+    + Cube(len: double)
+    + Cube()
+    + getVolume() const: double
+    + getSurfaceArea() const: double
+    + setLength(len: double): void
+    + getLength() const: double
+    + ~Cube()
+  }
+
+  class Sphere
+  note right of Sphere
+    No se recibió Sphere.h.
+    (Clase incluída sin atributos/métodos.)
+  end note
+}
+
+package "Números Complejos" {
+  class Complex {
+    - real: double
+    - imag: double
+    + nombre: string
+    --
+    + Complex()
+    + Complex(re: double, im: double = 0.0)
+    + Complex(other: Complex)
+    + add(a: double, b: double): float
+    + add(a: int,    b: int): int
+    + SetData(): void
+    + SetReal(re: double): void
+    + SetImag(im: double): void
+    + GetReal(): double
+    + GetImag(): double
+    + operator+(other: Complex): Complex
+    + operator+(): Complex
+    + operator-(other: Complex): Complex
+    + operator*(other: Complex): Complex
+    + operator/(other: Complex): Complex
+    + operator=(other: Complex): Complex
+    + display(): void
+    --
+    {static} <<friend>> operator==(lhs: Complex, rhs: Complex): int
+    {static} <<friend>> operator!=(lhs: Complex, rhs: Complex): int
+    {static} <<friend>> operator<<(os: ostream&, c: Complex): ostream&
+  }
+}
+
+' Relaciones
+Car --|> Vehicle
+AirVehicle --|> Vehicle
+Cube --|> Shape3D
+' Sphere: no tenemos header; si luego confirmas que hereda de Shape3D,
+' puedes cambiar a:  Sphere --|> Shape3D
+@enduml
