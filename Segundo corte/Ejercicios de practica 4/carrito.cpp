@@ -5,7 +5,6 @@
 #include <limits>
 using namespace std;
 
-/* ====== Modelos sencillos ====== */
 struct Producto
 {
     int id;
@@ -140,7 +139,6 @@ public:
             return false;
         }
 
-        // Verificar stock
         for (auto &it : items)
         {
             bool ok = false;
@@ -164,7 +162,6 @@ public:
             }
         }
 
-        // Descontar stock y registrar compra
         Compra c;
         for (auto &it : items)
         {
@@ -181,7 +178,6 @@ public:
     }
 };
 
-/* ====== Helpers ====== */
 int buscar_idx(const vector<Producto> &cat, int id)
 {
     for (size_t i = 0; i < cat.size(); ++i)
@@ -199,7 +195,6 @@ bool leer(T &x)
     return false;
 }
 
-/* ====== Demo sencilla ====== */
 int main()
 {
     vector<Producto> catalogo = {

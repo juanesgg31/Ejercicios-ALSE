@@ -1,0 +1,48 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam dpi 150
+
+class Producto {
+  - id: int
+  - nombre: string
+  - precio: double
+  - stock: int
+}
+
+class ItemCarrito {
+  - id_prod: int
+  - nombre: string
+  - precio: double
+  - cantidad: int
+  + subtotal(): double
+}
+
+class Compra {
+  - items: vector<ItemCarrito>
+  - total: double
+}
+
+class Usuario {
+  - nombre: string
+  - historial: vector<Compra>
+  + Usuario(nombre: string)
+  + agregar_compra(c: Compra): void
+  + ver_historial(): void
+}
+
+class CarritoCompras {
+  - items: vector<ItemCarrito>
+  + cantidad_en_carrito(id_prod: int): int
+  + ver_carrito(): void
+  + agregar(p: Producto, cant: int): bool
+  + quitar(id_prod: int, cant: int): bool
+  + total(): double
+  + pagar(u: Usuario, catalogo: vector<Producto>&): bool
+}
+
+CarritoCompras "1" *-- "many" ItemCarrito
+Compra         "1" *-- "many" ItemCarrito
+Usuario        "1" *-- "many" Compra
+ItemCarrito ..> Producto : toma datos de
+CarritoCompras ..> Producto : usa
+@enduml
