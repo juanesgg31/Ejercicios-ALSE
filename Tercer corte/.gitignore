@@ -1,0 +1,8 @@
+build/
+build_agent/
+*.user
+*.o
+*.moc
+
+data/
+*.csv
